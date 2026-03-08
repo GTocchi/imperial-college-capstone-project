@@ -23,7 +23,11 @@ The dataset contains **input vectors (`X`) and corresponding output evaluations 
 Queries were generated using **Bayesian Optimisation (Gaussian Process with Matérn kernel)** and **manual interventions** when the optimiser stalled.  
 
 **Details:**  
-- **Hyperparameter tuning:** ν was optimised by **maximising log-likelihood**; length scale and variance were constrained.  
+- **Hyperparameter tuning:** The main hyperparameters tuned were:
+  - **ν (nu)** – smoothness parameter of the Matérn kernel, optimised by **maximising log-likelihood**.
+  - **Kernel choice** – selection between **Matérn** or **RBF** kernel depending on v (nu): values higher than 2.5 would make the kernel switch to RBF.
+  - **Length scale (`l`)** – controls how far the function values are correlated; sometimes constrained to avoid exploding or shrinking values.
+  - **Variance (`std` or output scale)** – controls the overall magnitude of the GP; also sometimes constrained.
 - **Query strategy:** Combination of exploitation of predicted maxima and targeted exploration of uncertain regions.  
 - **Time frame:** Iterative rounds of 13 queries per function.  
 
