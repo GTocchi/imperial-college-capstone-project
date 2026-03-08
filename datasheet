@@ -8,12 +8,12 @@ This dataset allows students and researchers to simulate realistic optimisation 
 ---
 
 ## Dataset Composition
-The dataset contains **input vectors (`X`) and corresponding output evaluations (`y`)** collected during the BBO experiments.  
+The dataset contains **input vectors (`X`) and corresponding output evaluations (`y`)** collected during the BBO experiments over 8 functions. 
 
 **Details:**  
-- **Input dimensions:** 3–8 numeric features per point.  
+- **Input dimensions:** 2–8 numeric features per point.  
 - **Output:** Scalar function evaluation at each query point.  
-- **Size:** 17–22 points per function, depending on the iteration.  
+- **Size:** 20–40 points per function, depending on the function.  
 - **Format:** CSV or NumPy arrays; each row corresponds to one query and its evaluated output.  
 - **Gaps / Limitations:** Only a subset of the search space is sampled. Some high-dimensional regions remain unexplored, which may limit representation of extreme or rare function behaviours.
 
@@ -25,13 +25,13 @@ Queries were generated using **Bayesian Optimisation (Gaussian Process with Mat�
 **Details:**  
 - **Hyperparameter tuning:** ν was optimised by **maximising log-likelihood**; length scale and variance were constrained.  
 - **Query strategy:** Combination of exploitation of predicted maxima and targeted exploration of uncertain regions.  
-- **Time frame:** Iterative rounds of 10–12 queries per function.  
+- **Time frame:** Iterative rounds of 13 queries per function.  
 
 ---
 
 ## Preprocessing and Intended Uses
-- **Transformations:** Outputs (`y`) were standardised (mean=0, std=1) in some experiments; inputs scaled to [0,1] where appropriate.  
-- **Intended uses:** Developing, testing, and evaluating optimisation strategies, surrogate models, and hyperparameter tuning.  
+- **Transformations:** Outputs (`y`) were standardised (mean=0, std=1); inputs were already scaled to fit in a [0,1] domain across all dimensions.  
+- **Intended uses:** Developing, testing, and evaluating optimisation strategies, surrogate models and hyperparameter tuning.  
 - **Inappropriate uses:** Not suitable for general supervised learning outside black-box optimisation tasks or for applications requiring large, representative populations.  
 
 ---
@@ -39,5 +39,5 @@ Queries were generated using **Bayesian Optimisation (Gaussian Process with Mat�
 ## Example Data
 **Sample input (`X`) and output (`y`):**  
 ```text
-X = [0.6658, 0.1239, 0.8777, 0.7786, 0.1427, 0.3490, 0.8452, 0.7111]
-y = 64.44344
+X = [0.665889, 0.123911, 0.877752, 0.778601, 0.142700, 0.349055, 0.845223, 0.711136]
+y = 64.443444
