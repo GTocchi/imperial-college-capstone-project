@@ -13,20 +13,15 @@ This mirrors many real-world ML problems where experiments are expensive, slow, 
 
 ### Inputs
 - The system exposes **8 unknown objective functions**, each with a different input dimensionality.  
-- Inputs are **real-valued vectors** constrained to the unit hypercube:
-
-\[
-x \in [0,1]^d
-\]
-
-- The dimensionality \(d\) varies by function (from 2 to 8).  
+- Inputs are **real-valued vectors** constrained [0,1]
+- The dimensionality varies by function (from 2 to 8).  
 - Queries must be submitted in a **strict formatted string**, with each value rounded to six decimal places:
 
 **Example submission:**  
 0.413287-0.928104-0.175602
 
 ### Outputs
-- Each query returns a **scalar performance value**.  
+- Each query returns a **scalar performance value**, rounded to six decimal places.  
 - The objective function is **unknown** and treated as a black box.  
 - Observations may include **noise** and are revealed only after submission.
 
