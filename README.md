@@ -3,7 +3,7 @@
 ## Project Overview
 This repository contains my work for the **Black-Box Optimisation (BBO) Capstone Project**, completed as part of the **Imperial College Professional Certificate in Machine Learning and AI**.  
 
-The challenge focuses on optimising a set of **unknown functions under strict query constraints**, where no information about the functional form, gradients, or noise structure is available. The core objective is to **design a data-efficient query strategy** that balances exploration and exploitation to identify high-performing inputs with as few evaluations as possible.  
+The challenge focuses on optimising a set of **unknown functions under strict query constraints and few observations**, where no information about the functional form, gradients or noise structure is available. The core objective is to **design a data-efficient query strategy** that balances exploration and exploitation to identify high-performing inputs with as few evaluations as possible.  
 
 This mirrors many real-world ML problems where experiments are expensive, slow, or irreversible — e.g., hyperparameter tuning, engineering design, and scientific experimentation. The project strengthened my understanding of **surrogate modelling, acquisition strategies, and iterative model refinement**, skills that are directly applicable to optimisation and experimentation in industry.
 
