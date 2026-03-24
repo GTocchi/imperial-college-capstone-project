@@ -89,10 +89,10 @@ Because the dataset is small, results focus on **relative improvement across ite
 - Observations provide enough information for the GP surrogate to infer useful structure  
 
 ### Limitations and additional considerations
-- With very **sharp or highly irregular functions**, the GP may fail to model the landscape accurately. For example, a function may be smooth everywhere but contain a **small, sharp peak**; in such cases, the kernel may suggest an RBF structure automatically, but manual adjustment (setting a Matérn kernel with ν = 0.5) was sometimes necessary to better locate the maximum.  
-- **Graphical visualisation of the input space and the unknown function is crucial** to help the user make informed manual adjustments of hyperparameters.  
+- With very **sharp or highly irregular functions**, the GP may fail to model the landscape accurately. For example, a function may be smooth everywhere but contain a **small, sharp peak**; in such cases, the kernel may suggest an RBF structure automatically, but manual adjustment (setting a Matérn kernel with ν = 0.5) was sometimes necessary to better locate the maximum.
 - **Hyperparameter optimisation can be unstable**. Literature often restricts tuning to promising regions near the current maximum to stabilise kernel parameters, but here the **very limited input data** required global tuning.  
 - **Constraints on hyperparameters** were sometimes necessary to prevent exploding values for the length scale `l` or output variance `σ`.  
+- **Graphical visualisation of the input space and the unknown function is crucial** to help the user make informed manual adjustments of hyperparameters.  
 - Limited query budgets reduce the ability to explore the entire search space.  
 - Because dimensionality is small (≤8), **dimensionality reduction techniques such as PCA were not applied**.  
 - Failure modes may occur when:  
