@@ -23,6 +23,7 @@ The dataset contains **input vectors (`X`) and corresponding output evaluations 
 
 ## Collection Process
 Queries were generated using **Bayesian Optimisation with Gaussian Process surrogate models (Matérn or RBF kernels)** combined with **manual interventions** when the optimiser stalled.  
+Initially, queries were selected using Upper Confidence Bound (UCB) and later transitioned to Expected Improvement (EI) to prioritise points likely to improve the best observed value while accounting for uncertainty.
 
 **Details:**  
 - **Hyperparameter tuning:**  
