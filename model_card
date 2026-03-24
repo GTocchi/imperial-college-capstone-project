@@ -49,7 +49,7 @@ Key components include:
   - **Note:** In the literature, tuning is often restricted to promising regions around the current maximum to stabilise hyperparameters. Here, due to the **very limited number of observations**, the entire input space had to be considered, preventing localised hyperparameter optimisation.
 
 - **Exploration strategy**
-  - Bayesian Optimisation suggests promising points to approach the **maximum**  
+  - Bayesian Optimisation suggests promising points to approach the **maximum**. Initially, points were selected using Upper Confidence Bound (UCB), but in later rounds we transitioned to Expected Improvement (EI) to prioritise candidates likely to improve the best observed value while accounting for uncertainty.
   - manual adjustments applied when the optimiser stalled  
   - targeted exploration of **unexplored regions or boundaries**
 
