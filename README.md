@@ -58,11 +58,14 @@ This approach allows efficient identification of high-performing inputs with min
 
 ## Key Design Insight: Local Geometry Matters
 A central challenge in this project was accurately modelling sharp or highly localised maxima under severe data sparsity.
-In standard Gaussian Process modelling, the Matérn smoothness parameter ν is typically tuned by maximising the marginal log‑likelihood, often **restricted to a neighbourhood around the current maximum** to ensure local relevance. However, in this project such localised likelihood optimisation was not feasible due to the **very limited number of observations** near candidate optima. As a result, log‑likelihood maximisation had to be performed over the entire input domain.
+In standard Gaussian Process modelling, the Matérn smoothness parameter ν is typically tuned by maximising the marginal log‑likelihood, often **restricted to a neighbourhood around the current maximum** to ensure local relevance. 
+
+However, in this project such localised likelihood optimisation was not feasible due to the **very limited number of observations** near candidate optima. As a result, log‑likelihood maximisation had to be performed over the entire input domain.
+
 In situations where the objective function is largely flat but contains a small, extremely sharp spike, global likelihood optimisation tends to favour overly smooth priors (e.g. high‑ν Matérn or RBF kernels). While these kernels explain the global structure well, they fail to capture the local geometry near narrow maxima, which is precisely the **region of greatest interest for optimisation**.
+
 To address this issue, I adopted a local, **geometry‑informed strategy** for selecting ν, independent of global likelihood maximisation.
 Specifically, the approach focuses on estimating local curvature around the current maximum using its k nearest neighbouring observations:
-
 Slopes between the current maximum and its **nearest neighbours were computed, distances were normalised** to emphasise information content at small spatial scales and local curvature was inferred from the relationship between slope magnitude and proximity to the maximum.
 
 The **key intuition** is that normalised distances reveal how much information is expressed by local slopes:
