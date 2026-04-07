@@ -9,7 +9,7 @@ This mirrors many real-world ML problems where experiments are expensive, slow, 
 
 ---
 
-## Inputs and Outputs
+## Problem Setting
 
 ### Inputs
 - The system exposes **8 unknown objective functions**, each with a different input dimensionality.  
@@ -35,21 +35,44 @@ This mirrors many real-world ML problems where experiments are expensive, slow, 
 ---
 
 ## Key Skills Demonstrated
-- Data-efficient decision-making under uncertainty  
-- Surrogate modelling and iterative refinement  
-- Exploration vs. exploitation strategies  
-- Applied machine learning for optimisation tasks
+- Data‑efficient decision‑making under uncertainty
+- Surrogate modelling with Gaussian Processes
+- Exploration vs. exploitation trade‑offs
+- Hyperparameter sensitivity analysis
+- Applied optimisation in constrained, low‑data regimes
 
 ---
 
 ## Approach
 The BBO problem was tackled using a **surrogate-based optimisation framework**. The workflow included:
 
-1. **Surrogate Modelling**: Fitting a model to approximate the unknown function using observed query data.
-2. **Acquisition Strategy**: Selecting new points to query that balance exploration (learning more about the function) and exploitation (choosing points likely to have high performance).
-3. **Iterative Refinement**: Updating the surrogate model with new observations and repeating the acquisition cycle until query budget was exhausted.
+1. **Surrogate Modelling**: A Gaussian Process (GP) surrogate was fitted to approximate the unknown objective function using observed query–evaluation pairs.
+2. **Acquisition Strategy**: New query points were selected by balancing:
+  - Exploration: reducing uncertainty about the function, and
+  - Exploitation: querying points likely to improve upon the current best observation.
+4. **Iterative Refinement**: Updating the surrogate model with new observations and repeating the acquisition cycle until query budget was exhausted.
 
 This approach allows efficient identification of high-performing inputs with minimal queries, mimicking real-world scenarios such as hyperparameter tuning or engineering design optimization.
+
+---
+
+## Key Design Insight: Local Geometry Matters
+A central challenge in this project was accurately modelling sharp or highly localised maxima under severe data sparsity.
+In standard Gaussian Process modelling, the Matérn smoothness parameter ν is typically tuned by maximising the marginal log‑likelihood, often **restricted to a neighbourhood around the current maximum** to ensure local relevance. However, in this project such localised likelihood optimisation was not feasible due to the **very limited number of observations** near candidate optima. As a result, log‑likelihood maximisation had to be performed over the entire input domain.
+In situations where the objective function is largely flat but contains a small, extremely sharp spike, global likelihood optimisation tends to favour overly smooth priors (e.g. high‑ν Matérn or RBF kernels). While these kernels explain the global structure well, they fail to capture the local geometry near narrow maxima, which is precisely the **region of greatest interest for optimisation**.
+To address this issue, I adopted a local, **geometry‑informed strategy** for selecting ν, independent of global likelihood maximisation.
+Specifically, the approach focuses on estimating local curvature around the current maximum using its k nearest neighbouring observations:
+
+Slopes between the current maximum and its **nearest neighbours were computed, distances were normalised** to emphasise information content at small spatial scales and local curvature was inferred from the relationship between slope magnitude and proximity to the maximum.
+
+The **key intuition** is that normalised distances reveal how much information is expressed by local slopes:
+
+  - **Extremely large** slopes at very small distances indicate sharp spikes, favouring lower ν (rougher sample paths),
+  - **Moderate slopes** at small distances indicate locally rough but smoother behaviour, favouring higher ν,
+  - When **insufficient** nearby observations were available, ν was set to a standard smoothness value (ν = 2.5) to avoid overfitting sparse local structure.
+
+When strong local variation was observed near the maximum, smoother kernels were manually overridden in favour of rougher Matérn kernels (e.g. ν = 0.5), which are better suited to modelling narrow, high‑curvature peaks.
+This local ν‑selection strategy **proved particularly important in later optimisation rounds**, where accurately modelling local structure near candidate optima was more critical than achieving a good global fit.
 
 ---
 
