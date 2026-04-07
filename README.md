@@ -57,7 +57,7 @@ This approach allows efficient identification of high-performing inputs with min
 ---
 
 ## Key Design Insight: Local Geometry Matters
-A central challenge in this project was accurately modelling sharp or highly localised maxima under severe data sparsity.
+A **central challenge** in this project was accurately modelling sharp or highly localised maxima under severe data sparsity.
 In standard Gaussian Process modelling, the Matérn smoothness parameter ν is typically tuned by maximising the marginal log‑likelihood, often **restricted to a neighbourhood around the current maximum** to ensure local relevance. 
 
 However, in this project such localised likelihood optimisation was not feasible due to the **very limited number of observations** near candidate optima. As a result, log‑likelihood maximisation had to be performed over the entire input domain.
