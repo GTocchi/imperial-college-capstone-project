@@ -7,8 +7,7 @@
 **Version:** 1.0  
 **Developer:** Giulio Tocchi for "Imperial College – AI & ML Professional Certificate Capstone Project" 
 
-This model implements a **Bayesian Optimisation (BO) approach** designed to **find the maximum of unknown black-box functions** under a limited query budget. The strategy relies on **Gaussian Process (GP) surrogate models with Matérn or RBF kernels**, combined with hyperparameter tuning through **log-likelihood maximisation** and occasional manual adjustments.  
-
+This model implements a **Bayesian Optimisation (BO) approach** designed to **find the maximum of unknown black-box functions** under a limited query budget. The strategy relies on **Gaussian Process (GP) surrogate models with Matérn or RBF kernels**.
 The goal is to efficiently identify **high-value regions of the search space** where the objective function attains its **maximum**.
 
 ---
@@ -39,7 +38,8 @@ Key components include:
 - **Gaussian Process surrogate model**
   - Matérn kernel or RBF kernel  
   - Hyperparameters tuned using **maximum log-likelihood**  
-  - **Manual adjustment of kernel and ν (Matérn smoothness) sometimes required**: for example, for functions that are mostly flat but contain a **small, sharp peak**, the optimiser may select an RBF kernel automatically, but it culd be manually set to a Matérn kernel with ν = 0.5 to better capture sharp maxima
+  - **Manual adjustment of kernel and ν (Matérn smoothness) sometimes required**: for example, for functions that are mostly flat but contain a **small, sharp peak**, the optimiser may select an RBF kernel automatically, but it could be manually set to a Matérn kernel with ν = 0.5 to better capture sharp maximum, after checking the gradients of the nearest points around the current maxima and their normalized distance to the current maxima.  
+ 
 
 - **Hyperparameter optimisation**
   - ν (Matérn smoothness parameter)  
@@ -49,8 +49,7 @@ Key components include:
   - **Note:** In the literature, tuning is often restricted to promising regions around the current maximum to stabilise hyperparameters. Here, due to the **very limited number of observations**, the entire input space had to be considered, preventing localised hyperparameter optimisation.
 
 - **Exploration strategy**
-  - Bayesian Optimisation suggests promising points to approach the **maximum**. Initially, points were selected using Upper Confidence Bound (UCB), but in later rounds we transitioned to Expected Improvement (EI) to prioritise candidates likely to improve the best observed value while accounting for uncertainty.
-  - manual adjustments applied when the optimiser stalled  
+  - Bayesian Optimisation suggests promising points to approach the **maximum**. Initially, points were selected using Upper Confidence Bound (UCB), but in later rounds I transitioned to Expected Improvement (EI) to prioritise candidates likely to improve the best observed value while accounting for uncertainty.
   - targeted exploration of **unexplored regions or boundaries**
 
 - **Iterative refinement**
@@ -63,7 +62,7 @@ The approach therefore combines **automated probabilistic modelling with human-g
 
 ## Performance
 
-The strategy was evaluated across **eight unknown benchmark functions**, with the goal of **finding their maxima**.
+The strategy was evaluated across **eight objective benchmark functions**, with the goal of **finding their maxima**.
 
 ### Metrics used
 - Function value obtained at submitted query points  
@@ -83,14 +82,13 @@ Because the dataset is small, results focus on **relative improvement across ite
 ## Assumptions and Limitations
 
 ### Key assumptions
-- Observations are very limited  
+- Observations are very limited
 - Input features have range [0,1]  
 - Function has **moderate dimensionality (≤8 variables)**  
 - Observations provide enough information for the GP surrogate to infer useful structure  
 
 ### Limitations and additional considerations
-- With very **sharp or highly irregular functions**, the GP may fail to model the landscape accurately. For example, a function may be smooth everywhere but contain a **small, sharp peak**; in such cases, the kernel may suggest an RBF structure automatically, but manual adjustment (setting a Matérn kernel with ν = 0.5) was sometimes necessary to better locate the maximum.
-- **Hyperparameter optimisation can be unstable**. Literature often restricts tuning to promising regions near the current maximum to stabilise kernel parameters, but here the **very limited input data** required global tuning.  
+- With very sharp or irregular functions, global GP kernel selection may over‑smooth the landscape. For example, when a function is largely flat but contains a narrow peak, an RBF kernel may be selected automatically, while a Matérn kernel with ν = 0.5 better captures the local maximum.
 - **Constraints on hyperparameters** were sometimes necessary to prevent exploding values for the length scale `l` or output variance `σ`.  
 - **Graphical visualisation of the input space and the unknown function is crucial** to help the user make informed manual adjustments of hyperparameters.  
 - Limited query budgets reduce the ability to explore the entire search space.  
