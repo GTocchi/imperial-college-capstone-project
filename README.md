@@ -74,8 +74,8 @@ The **key intuition** is that normalised distances reveal how much information i
   - **Moderate slopes** at small distances indicate locally rough but smoother behaviour, favouring higher ν,
   - When **insufficient** nearby observations were available, ν was set to a standard smoothness value (ν = 2.5) to avoid overfitting sparse local structure.
 
-When strong local variation was observed near the maximum, smoother kernels were manually overridden in favour of rougher Matérn kernels (e.g. ν = 0.5), which are better suited to modelling narrow, high‑curvature peaks.
-This local ν‑selection strategy **proved particularly important in later optimisation rounds**, where accurately modelling local structure near candidate optima was more critical than achieving a good global fit.
+When strong local variation was observed near the maximum, the suggestions obtained by maximizing the log‑likelihood were manually overridden in favour of rougher Matérn kernels (e.g. ν = 0.5), which are better suited to modelling narrow, high‑curvature peaks.
+This local ν‑selection strategy proved particularly important in later optimisation rounds, where a higher density of points near the current maxima was available and the strategy shifted toward more aggressive exploitation; in this phase, accurately modelling local structure around candidate optima was more critical than achieving a good global fit.
 
 ---
 
