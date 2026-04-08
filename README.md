@@ -56,6 +56,12 @@ This approach allows efficient identification of high-performing inputs with min
 
 ---
 
+## Data Preprocessing
+All input variables were provided natively within the unit hypercube [0,1]^d and therefore required no further rescaling. 
+Output observations were standardised to zero mean and unit variance prior to fitting the Gaussian Process surrogate. This standardisation improved numerical stability and ensured well‑behaved kernel hyperparameter estimation under severe data sparsity.
+
+---
+
 ## Key Design Insight: Local Geometry Matters
 A **central challenge** in this project was accurately modelling sharp or highly localised maxima under severe data sparsity.
 In standard Gaussian Process modelling, the Matérn smoothness parameter ν is typically tuned by maximising the marginal log‑likelihood, often **restricted to a neighbourhood around the current maximum** to ensure local relevance. 
@@ -65,10 +71,13 @@ However, in this project such localised likelihood optimisation was not feasible
 In situations where the objective function is largely flat but contains a small, extremely sharp spike, global likelihood optimisation tends to favour overly smooth priors (e.g. high‑ν Matérn or RBF kernels). While these kernels explain the global structure well, they fail to capture the local geometry near narrow maxima, which is precisely the **region of greatest interest for optimisation**.
 
 To address this issue, I adopted a local, **geometry‑informed strategy** for selecting ν, independent of global likelihood maximisation.
-Specifically, the approach focuses on estimating local curvature around the current maximum using its k nearest neighbouring observations:
-Slopes between the current maximum and its **nearest neighbours were computed, distances were normalised** to emphasise information content at small spatial scales and local curvature was inferred from the relationship between slope magnitude and proximity to the maximum.
+Slopes between the current maximum and its k nearest neighbours were computed as differences in output value divided by Euclidean distance. Distances were rescaled by a dimension‑dependent factor to ensure slope magnitudes were comparable across input dimensionalities d, thereby highlighting curvature signals arising from very small neighbourhoods around the maximum.
 
-The **key intuition** is that normalised distances reveal how much information is expressed by local slopes:
+$$
+s_i = \frac{|y_{\max} - y_k|}{\|x_k - x_{\max}\| / \sqrt{d}}
+$$
+
+The **key intuition** is that normalised distances from the current max reveal how much information is expressed by local slopes:
 
   - **Extremely large** slopes at very small distances indicate sharp spikes, favouring lower ν (rougher sample paths),
   - **Moderate slopes** at small distances indicate locally rough but smoother behaviour, favouring higher ν,
