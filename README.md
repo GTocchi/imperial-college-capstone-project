@@ -1,4 +1,4 @@
-# Imperial College Capstone Project: Black-Box Optimisation (BBO)
+# Imperial College Capstone Project: Black-Box Optimisation (BBO) Challenge
 
 ## Project Overview
 This repository contains my work for the **Black-Box Optimisation (BBO) Capstone Project**, completed as part of the **Imperial College Professional Certificate in Machine Learning and AI**.  
