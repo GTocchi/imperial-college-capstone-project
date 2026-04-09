@@ -14,7 +14,7 @@ This mirrors many real-world ML problems where experiments are expensive, slow, 
 ### Inputs
 - The system exposes **8 unknown objective functions**, each with a different input dimensionality.  
 - Inputs are **real-valued vectors** constrained [0,1]
-- The dimensionality varies by function (from 2 to 8).  
+- The input dimensionality varies by function (from 2 to 8).  
 - Queries must be submitted in a **strict formatted string**, with each value rounded to six decimal places:
 
 ### Outputs
@@ -100,7 +100,9 @@ However, in this project such localised likelihood optimisation was not feasible
 In situations where the objective function is largely flat but contains a small, extremely sharp spike, global likelihood optimisation tends to favour overly smooth priors (e.g. high‑ν Matérn or RBF kernels). While these kernels explain the global structure well, they fail to capture the local geometry near narrow maxima, which is precisely the **region of greatest interest for optimisation**.
 
 To address this issue, I adopted a local, **geometry‑informed strategy** for selecting ν, independent of global likelihood maximisation.
-Local curvature around the current maximum was approximated using scale‑adjusted slopes to its k nearest neighbouring observations. Specifically, slopes were computed as absolute differences in function value divided by Euclidean distance from the current maximum, with distances rescaled by $$\sqrt{d}$$​ to obtain dimension‑consistent curvature estimates:
+Local curvature around the current maximum was approximated using scale‑adjusted slopes to its k nearest neighbouring observations. 
+Objective values y were standardised prior to slope computation to remove global scale effects and ensure comparability across neighbourhoods. 
+Specifically, slopes were computed as absolute differences in function value divided by Euclidean distance from the current maximum, with distances rescaled by $$\sqrt{d}$$​ to obtain dimension‑consistent curvature estimates:
 
 $$
 s_i = \frac{|y_{\max} - y_i|}{\|x_i - x_{\max}\| / \sqrt{d}}
