@@ -36,7 +36,7 @@ X: 0.604386-0.086465
 </p>
 <em>Figure 2: Overall, the optimisation process reflects a function with weak global structure and a highly localised optimum, requiring prolonged exploration to reliably identify promising regions and carefully timed exploitation to capture the final maximum.</em>
 
-
+</p>
 <p align="center">
   <img src="diagnostics/y_final.PNG" width="400">
 </p>
