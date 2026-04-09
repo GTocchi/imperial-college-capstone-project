@@ -9,13 +9,26 @@ Subsequent rounds favoured exploration due to the sparsity of the data and the a
 ### Effective Optimisation Choices
 Maximisation of the marginal log‑likelihood (MLL) did not indicate a clearly preferred model configuration throughout the submissions, reflecting the evolving balance between global exploration and local refinement. Due to the predominantly exploratory approach, no significant concentration of samples emerged around the current maxima. Consequently, the smoothness parameter ν was maintained at a standard value of 2.5.
 
+<table align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td align="center">
+      <img src="diagnostics/x1_x2_scatter_final.PNG" width="250" height="250" />
+    </td>
+    <td align="center">
+      <img src="diagnostics/x1_x3_scatter_final.PNG" width="250" height="250" />
+    </td>
+    <td align="center">
+      <img src="diagnostics/x2_x3_scatter_final.PNG" width="250" height="250" />
+    </td>
+  </tr>
+</table>
 
 <p align="center">
-  <img src="diagnostics/x1_x2_scatter_final.PNG" width="250" height="250"/>
-  <img src="diagnostics/x1_x3_scatter_final.PNG" width="250" height="250"/>
-  <img src="diagnostics/x2_x3_scatter_final.PNG" width="250" height="250"/>
+  <em>
+    Figure 1: Scatter plots of the input points, illustrating the exploratory sampling strategy
+    (blue points: initial evaluations; red points: subsequent submissions).
+  </em>
 </p>
-<em>Figure 1: Scatter plot of the input points, illustrating the exploratory sampling strategy (blue points: initial evaluations; red points: subsequent submissions).</em>
 
 ### Best Observed Solution
 ```
