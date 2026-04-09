@@ -1,30 +1,21 @@
 ## Function 2
 
-### Initial Observations
-Function 2 initially appeared extremely flat, with early evaluations yielding objective values close to zero across most of the input domain. This lack of informative variation made it difficult to identify promising regions in the initial stages and required an explicitly exploratory optimisation strategy to locate a meaningful maximum while avoiding noise‑dominated fluctuations.
+###Initial Observations
+Function X exhibited moderate variability already during the initial evaluations, with objective values spanning both positive and slightly negative ranges. This suggested the presence of informative signal beyond pure noise. However, the sparse sampling density provided no clear indication of the global structure or of dominant regions of interest. Consequently, early optimisation required a deliberately exploratory strategy to distinguish consistent trends from local fluctuations and to avoid premature exploitation based on insufficient spatial information.
 
 <p align="center">
-  <img src="diagnostics/visualization_initial.PNG" width="400">
+  <img src="diagnostics/visualization_final.PNG" width="400">
 </p>
-<em>Figure 1: Early evaluations show a predominantly flat objective surface, providing limited guidance for optimisation and motivating an exploratory sampling strategy.</em>
+<em>Figure 1: 3D visualisation of the function over the input space, illustrating mainly two major local variations under sparse initial sampling.</em>
 
-### Observed Behaviour
-The first observations in the "central" unexplored" area quickly showed a tiny but very high spike in the region.
+###Observed Behaviour
+Subsequent exploration revealed two main regions of interest within the search space. Both exhibited locally improved objective values, although their relative potential remained uncertain for several rounds. Only in the final submission did the optimisation decisively exploit the region exhibiting the higher maximum objective value.
 
-### Effective Optimisation Choices
-This function highlights the limitations of maximising the marginal log‑likelihood (MLL) over the entire input domain when the objective is dominated by large flat regions. Global likelihood optimisation consistently favoured very smooth kernels, effectively RBF‑like behaviour:
-```
-MLL ν = 0.5   : −18.3230
-MLL ν = 1.5   :  −9.6884
-MLL ν = 2.5   :  −5.8451
-MLL (RBF)     :  −1.7110  
-```
-While these kernels accurately captured the predominantly flat structure of the domain, they systematically failed to represent the narrow, high‑curvature spike where the objective maximum resides.
+###Effective Optimisation Choices
+Maximisation of the marginal log‑likelihood (MLL) did not indicate a clear preferred model configuration throughout the submissions, reflecting the evolving balance between global exploration and local refinement.
+In the later stages, the increased concentration of samples around the current maxima revealed steep local gradients at small normalised distances. This justified the use of lower values of the smoothness parameter ν, enabling the model to better capture sharp local variations without excessive smoothing.
 
-To assess local structure, nearest‑neighbour analysis around the incumbent maximum was performed. This revealed extremely large local gradients over very small normalised distances, strongly indicating the presence of sharp curvature.
-Here, y std denotes the standardised objective value at each sampled location, used for local gradient estimation; values are ordered by increasing normalised distance from the incumbent maximum:
-
-| obj. value (y std)      | distance (norm.) | slope |
+| obj. value (y)      | distance (norm.) | slope |
 |:---------:|:---------------:|:-----:|
 | 0.9737 | 0.0018 | 1666.7 |
 | 0.9657 | 0.0018 | 1681.8 |
@@ -32,17 +23,20 @@ Here, y std denotes the standardised objective value at each sampled location, u
 | 0.8811 | 0.0053 |  643.0 |
 | 0.8020 | 0.0078 |  486.5 |
 
-Based on this empirical evidence, the Matérn smoothness parameter was deliberately reduced to a rougher configuration (ν = 0.5). This adjustment enabled the surrogate to model the sharp local feature governing optimisation performance, at the expense of global smoothness that was irrelevant to the task.
-
-Once the spike had been reliably identified and localised, the optimisation strategy transitioned from broad exploration to aggressive exploitation by increasing the Expected Improvement emphasis on local refinement.
+Broad exploration was therefore sustained for multiple rounds, driven by both the size of the search space and the presence of two promising but separate regions. Exploitation was deferred until the later stages, once sufficient evidence had accumulated to confidently prioritise the superior region.
 
 ### Best Observed Solution
 ```
-y: 0.990274
-X: 0.422000-0.419516
+y: 0.652834
+X: 0.604386-0.086465
 ```
 
 <p align="center">
   <img src="diagnostics/visualization_final.PNG" width="400">
 </p>
-<em>Figure 2: Final evaluations localised a narrow spike surrounded by an otherwise flat objective region.</em>
+<em>Figure 2: Overall, the optimisation process reflects a function with weak global structure and a highly localised optimum, requiring prolonged exploration to reliably identify promising regions and carefully timed exploitation to capture the final maximum.</em>
+
+<p align="center">
+  <img src="diagnostics/y_final.PNG" width="400">
+</p>
+<em>Figure 2: Bar plot of the final objective values (y), showing limited variability and the absence of any dominant high‑value spike across evaluations.</em>
