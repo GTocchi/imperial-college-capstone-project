@@ -3,9 +3,10 @@
 ### Initial Observations
 Function 1 initially appeared extremely flat, with early evaluations yielding objective values close to zero across most of the input domain. This lack of informative variation made it difficult to identify promising regions in the initial stages and required an explicitly exploratory optimisation strategy to locate a meaningful maximum while avoiding noise‑dominated fluctuations.
 
-![Initial objective values](diagnostics/visualization_initial.PNG)
-
-*Figure 1: Early evaluations show a predominantly flat objective surface, providing limited guidance for optimisation and motivating an exploratory sampling strategy.*
+<p align="center">
+  <img src="diagnostics/visualization_initial.PNG" width="400">
+</p>
+<em>Figure 1: Early evaluations show a predominantly flat objective surface, providing limited guidance for optimisation and motivating an exploratory sampling strategy.</em>
 
 ### Observed Behaviour
 The first observations in the "central" unexplored" area quickly showed a tiny but very high spike in the region.
@@ -41,6 +42,7 @@ y: 0.990274
 X: 0.422000-0.419516
 ```
 
-![Initial objective values](diagnostics/visualization_final.PNG)
-
-*Figure 2: Final evaluations localised a narrow spike surrounded by an otherwise flat objective region.*
+<p align="center">
+  <img src="diagnostics/visualization_final.PNG" width="400">
+</p>
+<em>Figure 2: Final evaluations localised a narrow spike surrounded by an otherwise flat objective region.</em>
