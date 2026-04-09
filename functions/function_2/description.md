@@ -15,13 +15,13 @@ Subsequent exploration revealed two main regions of interest within the search s
 Maximisation of the marginal log‑likelihood (MLL) did not indicate a clear preferred model configuration throughout the submissions, reflecting the evolving balance between global exploration and local refinement.
 In the later stages, the increased concentration of samples around the current maxima revealed steep local gradients at small normalised distances. This justified the use of lower values of the smoothness parameter ν, enabling the model to better capture sharp local variations without excessive smoothing.
 
-| obj. value (y)      | distance (norm.) | slope |
+| obj. value (y)      | distance (norm.) | slope | 
 |:---------:|:---------------:|:-----:|
-| 0.9737 | 0.0018 | 1666.7 |
-| 0.9657 | 0.0018 | 1681.8 |
-| 0.9607 | 0.0022 | 1382.0 |
-| 0.8811 | 0.0053 |  643.0 |
-| 0.8020 | 0.0078 |  486.5 |
+  0.6194   |     0.0066      |  493.3976 
+  0.6070   |     0.0116      |  286.5934 
+  0.6110   |     0.0186      |  176.9395 
+  0.5508   |     0.0193      |  185.6320 
+  0.5667   |     0.0234      |  149.9327 
 
 Broad exploration was therefore sustained for multiple rounds, driven by both the size of the search space and the presence of two promising but separate regions. Exploitation was deferred until the later stages, once sufficient evidence had accumulated to confidently prioritise the superior region.
 
