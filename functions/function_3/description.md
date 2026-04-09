@@ -11,9 +11,9 @@ Maximisation of the marginal log‑likelihood (MLL) did not indicate a clearly p
 
 
 <p align="center">
-  <img src="diagnostics/x1_x2_scatter_final.PNG" width="300" height="220"/>
-  <img src="diagnostics/x1_x3_scatter_final.PNG" width="300" height="220"/>
-  <img src="diagnostics/x2_x3_scatter_final.PNG" width="300" height="220"/>
+  <img src="diagnostics/x1_x2_scatter_final.PNG" width="300" height="300"/>
+  <img src="diagnostics/x1_x3_scatter_final.PNG" width="300" height="300"/>
+  <img src="diagnostics/x2_x3_scatter_final.PNG" width="300" height="300"/>
 </p>
 <em>Figure 1: Scatter plot of the input points, illustrating the exploratory sampling strategy (blue points: initial evaluations; red points: subsequent submissions).</em>
 
