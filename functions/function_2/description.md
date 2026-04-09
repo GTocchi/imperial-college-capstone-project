@@ -1,17 +1,17 @@
 ## Function 2
 
-###Initial Observations
+### Initial Observations
 Function X exhibited moderate variability already during the initial evaluations, with objective values spanning both positive and slightly negative ranges. This suggested the presence of informative signal beyond pure noise. However, the sparse sampling density provided no clear indication of the global structure or of dominant regions of interest. Consequently, early optimisation required a deliberately exploratory strategy to distinguish consistent trends from local fluctuations and to avoid premature exploitation based on insufficient spatial information.
 
 <p align="center">
-  <img src="diagnostics/visualization_final.PNG" width="400">
+  <img src="diagnostics/visualization_initial.PNG" width="400">
 </p>
 <em>Figure 1: 3D visualisation of the function over the input space, illustrating mainly two major local variations under sparse initial sampling.</em>
 
-###Observed Behaviour
+### Observed Behaviour
 Subsequent exploration revealed two main regions of interest within the search space. Both exhibited locally improved objective values, although their relative potential remained uncertain for several rounds. Only in the final submission did the optimisation decisively exploit the region exhibiting the higher maximum objective value.
 
-###Effective Optimisation Choices
+### Effective Optimisation Choices
 Maximisation of the marginal log‑likelihood (MLL) did not indicate a clear preferred model configuration throughout the submissions, reflecting the evolving balance between global exploration and local refinement.
 In the later stages, the increased concentration of samples around the current maxima revealed steep local gradients at small normalised distances. This justified the use of lower values of the smoothness parameter ν, enabling the model to better capture sharp local variations without excessive smoothing.
 
@@ -39,4 +39,4 @@ X: 0.604386-0.086465
 <p align="center">
   <img src="diagnostics/y_final.PNG" width="400">
 </p>
-<em>Figure 2: Bar plot of the final objective values (y), showing limited variability and the absence of any dominant high‑value spike across evaluations.</em>
+<em>Figure 3: Bar plot of the final objective values (y), showing limited variability and the absence of any dominant high‑value spike across evaluations.</em>
