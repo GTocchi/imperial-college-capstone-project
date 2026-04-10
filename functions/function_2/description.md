@@ -1,6 +1,7 @@
 ## Function 2
 
 ### Initial Observations
+The function has two input dimensions, with 10 initial (x,y) observations.
 Function X exhibited moderate variability already during the initial evaluations, with objective values spanning both positive and slightly negative ranges. This suggested the presence of informative signal beyond pure noise. However, the sparse sampling density provided no clear indication of the global structure or of dominant regions of interest. Consequently, early optimisation required a deliberately exploratory strategy to distinguish consistent trends from local fluctuations and to avoid premature exploitation based on insufficient spatial information.
 
 <p align="center">
