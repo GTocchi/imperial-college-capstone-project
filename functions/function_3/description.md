@@ -1,6 +1,7 @@
 ## Function 3
 
 ### Initial Observations
+The function has three input dimensions, with 15 initial (x,y) observations.
 Initial evaluations yield objective values in the range [−0.40, −0.03], with most observations concentrated near −0.10, suggesting low variance and no early evidence of a clearly dominant region.
 
 ### Observed Behaviour
