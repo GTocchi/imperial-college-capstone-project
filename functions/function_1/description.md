@@ -1,6 +1,7 @@
 ## Function 1
 
 ### Initial Observations
+The function has two input dimensions, with 10 initial (x,y) observations.
 Function 1 initially appeared extremely flat, with early evaluations yielding objective values close to zero across most of the input domain. This lack of informative variation made it difficult to identify promising regions in the initial stages and required an explicitly exploratory optimisation strategy to locate a meaningful maximum while avoiding noise‑dominated fluctuations.
 
 <p align="center">
