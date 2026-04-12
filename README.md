@@ -119,11 +119,17 @@ This local ν‑selection strategy proved particularly important in later optimi
 ### 3. Acquisition Strategy
 
 #### 3.1 Expected Improvement and the Exploration Parameter ξ
-The exploration–exploitation trade‑off in Expected Improvement was controlled via the parameter ξ. Smaller values of ξ bias the acquisition function toward exploitation, favouring candidates with high predicted mean, while larger values encourage exploration by rewarding uncertainty more strongly.
-In this project, ξ was selected empirically based on observed optimisation behaviour:
+The exploration–exploitation trade-off in Expected Improvement was controlled through the parameter ξ. Smaller values bias the acquisition function toward exploitation by favouring points with high predicted objective value, whereas larger values place greater emphasis on uncertain regions of the design space.
 
-  - **ξ = 0.01** was used when prioritising exploitation and fine‑grained refinement around the current best region.
-  - **ξ = 0.04** was used to promote broader exploration when uncertainty remained high or when local models were deemed less reliable.
+In this work, ξ was adjusted empirically according to observed optimisation progress:
+
+  - **ξ = 0.04** was used when broader exploration was required due to higher uncertainty or reduced confidence in local surrogate accuracy.
+  - **ξ = 0.01** was used for routine local refinement around promising regions.
+  - **ξ = 0.001** was used during strongly exploitative phases, particularly when several candidate points were located close to     the current best solution according to a normalised distance criterion.
+
+
+
+This adaptive strategy was adopted to balance efficient convergence with adequate global search.
 
 ### 4. Query Selection via Multi‑Resolution Local Search
 At every optimisation step, the current best point served as the centre of a multi‑resolution local search. A hierarchy of shrinking neighbourhoods was explored, within which candidate points were generated deterministically as Cartesian products of low‑resolution local grids around the incumbent solution. Expected Improvement was repeatedly maximised over these locally generated candidates, progressively refining the incumbent solution before committing to the next function evaluation.
