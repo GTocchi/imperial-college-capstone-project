@@ -2,7 +2,7 @@
 
 ### Initial Observations
 The function has four input dimensions, with 30 initial (x,y) observations.
-Initial evaluations exhibit a wide dispersion of predominantly negative objective values, spanning a broad range with no immediately discernible structure.
+Initial evaluations exhibit a wide dispersion (having the seond highest standard devion out of the 8 functions) of predominantly negative objective values, spanning a broad range with no immediately discernible structure.
 
 ### Observed Behaviour
 After a small number of exploratory evaluations, a relatively large central region of the four‑dimensional input space was identified, characterised by objective values close to zero.
@@ -34,3 +34,8 @@ X: 0.170347-0.756959-0.276520-0.531232
   <img src="diagnostics/scatter_plot.PNG" width="800">
 </p>
 <em>Figure 2: Pairwise scatter plots of all input dimensions, illustrating the central region of the four-dimensional search space that was identified and subsequently explored more intensively during optimisation. Blue points denote the initial sampled inputs, while red points represent the subsequent optimisation-generated candidate evaluations.</em>
+</em>
+<p align="center">
+  <img src="diagnostics/obj_values4.PNG" width="600">
+</p>
+<em>Figure 1: Objective values (initial vs predicted samples), showing the trajectory of evaluations during the optimisation process.</em>
