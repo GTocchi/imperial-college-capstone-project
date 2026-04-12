@@ -22,7 +22,7 @@ This analysis revealed extremely large local slopes, strongly indicating the pre
 | -0.1935 | 0.0450  | 219.9192 |
 | 0.2320 | 0.0481 |  148.0482 |
 
-Based on this empirical evidence, the Matérn smoothness parameter was deliberately reduced to a rougher configuration (ν = 0.5).
+Based on this empirical evidence, the Matérn smoothness parameter was deliberately reduced to a rougher configuration (ν = 0.5). This kernel adjustment improved predictive responsiveness in the neighbourhood of high-performing samples.
 
 ### Best Observed Solution
 ```
@@ -31,6 +31,6 @@ X: 0.170347-0.756959-0.276520-0.531232
 ```
 
 <p align="center">
-  <img src="diagnostics/visualization_final.PNG" width="400">
+  <img src="scatter_plot.PNG" width="400">
 </p>
-<em>Figure 2: Final evaluations localised a narrow spike surrounded by an otherwise flat objective region.</em>
+<em>Figure 2: Pairwise scatter plots of all input dimensions, illustrating the central region of the four-dimensional search space that was identified and subsequently explored more intensively during optimisation. Blue points denote the initial sampled inputs, while red points represent the subsequent optimisation-generated candidate evaluations.</em>
