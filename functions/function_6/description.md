@@ -11,7 +11,7 @@ Following a limited number of exploratory evaluations, a broader region of the i
 
 ### Effective Optimisation Choices
 
-Maximisation of the marginal log-likelihood (MLL) over the full input domain did not yield a clearly dominant kernel configuration, likely due to the limited number of observations (20 initially, 32 prior to the final submission) and sparse coverage of the input space. For this reason, MLL-based selection was treated as indicative rather than decisive in this case.
+Maximisation of the marginal log-likelihood (MLL) over the full input domain did not yield a clearly dominant kernel configuration, likely due to the limited number of observations (20 initially, 32 prior to the final submission) and sparse coverage of the input space. However, the limited number of observations (20 initially, 32 prior to the final submission) and sparse coverage of the input space MLL-based selection was treated as indicative rather than decisive in this case.
 
 Initially, a relatively smooth prior was adopted using a Matérn kernel with smoothness parameter ν=2.5. However, nearest-neighbour analysis in later iterations revealed increased local variability, with relatively large changes in objective value over small normalised distances, indicating moderate non-smooth behaviour.
 
