@@ -27,7 +27,7 @@ Based on this empirical evidence, the Matérn smoothness parameter was deliberat
 ### Best Observed Solution
 ```
 y: 0.578296
-X: 0.170347-0.756959-0.276520-0.531232
+X: 0.397201-0.420463-0.363744-0.430160 
 ```
 
 <p align="center">
