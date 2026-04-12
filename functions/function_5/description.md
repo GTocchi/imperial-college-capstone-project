@@ -28,6 +28,6 @@ X: 1.000000-1.000000-1.000000-1.000000
 This result indicates that the global optimum lies at the extreme boundary of the input space, reinforcing earlier observations that high-value regions tend to concentrate at domain edges.
 
 <p align="center">
-  <img src="diagnostics/obj_values.PNG" width="400">
+  <img src="diagnostics/obj_values.PNG" width="600">
 </p>
 <em>Figure 1: Objective values (initial vs predicted samples), showing the trajectory of evaluations during the optimisation process.</em>
