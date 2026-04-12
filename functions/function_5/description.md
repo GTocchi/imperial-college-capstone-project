@@ -16,8 +16,8 @@ In particular, several high-performing regions were identified near the very bou
 An initial exploratory sampling strategy proved essential in identifying these regions, as early convergence toward any single peak would have resulted in suboptimal performance.
 
 ### Effective Optimisation Choices
-Given the relatively limited number of evaluations (20 initial observations, increasing to 32 prior to final submission) in a four-dimensional space, full optimisation of the marginal log-likelihood (MLL) over the entire input domain was not considered feasible.
-Instead, model configuration was guided by exploratory structure rather than local refinement. In particular, the limited density of observations around the current best regions prevented the use of nearest-neighbour-based adaptive tuning strategies.
+Maximisation of the marginal log-likelihood (MLL) over the full input domain did not yield a clearly dominant kernel configuration. Given the relatively limited number of evaluations (20 initial observations, increasing to 32 prior to final submission) in a four-dimensional space, MLL-based selection was treated as indicative rather than decisive in this case.
+Moreover, the limited density of observations around the current best regions prevented the use of nearest-neighbour-based adaptive tuning strategies, due to the number of promising regions identified and explored.
 As a result, the Matérn kernel smoothness parameter was fixed to a "standard" and robust setting of v=2.5
 
 ### Best Observed Solution
