@@ -35,10 +35,13 @@ X: 0.604386-0.086465
 <p align="center">
   <img src="diagnostics/visualization_final.PNG" width="400">
 </p>
+
 <em>Figure 2: Overall, the optimisation process reflects a function with weak global structure and a highly localised optimum, requiring prolonged exploration to reliably identify promising regions and carefully timed exploitation to capture the final maximum.</em>
 
-</p>
+<br><br>
+
 <p align="center">
-  <img src="diagnostics/y_final.PNG" width="400">
+  <img src="diagnostics/obj_values2.PNG" width="600">
 </p>
-<em>Figure 3: Bar plot of the final objective values (y), showing limited variability and the absence of any dominant high‑value spike across evaluations.</em>
+
+<em>Figure 1: Objective values (initial vs predicted samples), showing the trajectory of evaluations during the optimisation process.</em>
