@@ -47,3 +47,11 @@ X: 0.422000-0.419516
   <img src="diagnostics/visualization_final.PNG" width="400">
 </p>
 <em>Figure 2: Final evaluations localised a narrow spike surrounded by an otherwise flat objective region.</em>
+
+<br><br>
+
+<p align="center">
+  <img src="diagnostics/obj_values1.PNG" width="600">
+</p>
+
+<em>Figure 1: Objective values (initial vs predicted samples), showing the trajectory of evaluations during the optimisation process.</em>
