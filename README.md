@@ -34,12 +34,11 @@ y = 64.443444
 ---
 
 ## Repository Structure
-- `model_card/` — Documentation describing model assumptions and limitations.  
-- `datasheet/` — Data documentation for reproducibility and transparency.  
-- `functions/` — Documentation describing the approach taken for each function.
-- `notebooks/` — All experiments and implementation are contained here.
+- model_card/ : Documentation of model assumptions, limitations, and intended use.
+- datasheet/ : Data documentation for transparency and reproducibility.
+- functions/ : Per-function analysis, optimisation approach, and performance notes.
+- notebooks/ : Jupyter notebooks containing implementation, experiments, and final results.
 
-All experiments and implementation are contained in `notebooks/bbo.ipynb`
 ---
 
 ## Key Skills Demonstrated
