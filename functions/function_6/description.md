@@ -9,7 +9,7 @@ Function 6 initially produced negative objective values tightly clustered around
 
 Following a limited number of exploratory evaluations, a broader region of the input space was identified in which objective values were closer to zero, suggesting weak global structure and limited exploitable gradients in the early stage of optimisation.
 
-Effective Optimisation Choices
+### Effective Optimisation Choices
 
 Maximisation of the marginal log-likelihood (MLL) over the full input domain did not yield a clearly dominant kernel configuration, likely due to the limited number of observations (20 initially, 32 prior to the final submission) and sparse coverage of the input space. For this reason, MLL-based selection was treated as indicative rather than decisive in this case.
 
