@@ -36,8 +36,10 @@ y = 64.443444
 ## Repository Structure
 - `model_card/` — Documentation describing model assumptions and limitations.  
 - `datasheet/` — Data documentation for reproducibility and transparency.  
-- *(Future additions)*: Code notebooks, scripts, and examples for submitting queries, surrogate modelling, and acquisition strategies.
+- `functions/` — Documentation describing the approach taken for each function.
+- `notebooks/` — All experiments and implementation are contained here.
 
+All experiments and implementation are contained in `notebooks/bbo.ipynb`
 ---
 
 ## Key Skills Demonstrated
