@@ -34,10 +34,44 @@ y = 64.443444
 ---
 
 ## Repository Structure
-- model_card/ : Documentation of model assumptions, limitations, and intended use.
-- datasheet/ : Data documentation for transparency and reproducibility.
-- functions/ : Per-function analysis, optimisation approach, and performance notes.
-- notebooks/ : Jupyter notebooks containing implementation, experiments, and final results.
+
+```
+imperial-college-capstone-project/
+│
+├── functions/                         Benchmark function documentation and analysis
+│   ├── function_1/
+│   │   ├── diagnostics/               Validation plots and supporting checks
+│   │   └── description.md             Methodology, observations, and results
+│   │
+│   ├── function_2/
+│   ├── function_3/
+│   ├── function_4/
+│   ├── function_5/
+│   ├── function_6/
+│   ├── function_7/
+│   │
+│   └── function_8/
+│       ├── diagnostics/
+│       └── description.md
+│
+├── notebooks/                         Core implementation and experiments
+│   ├── bayesian_black_box_optimization.ipynb
+│   │   Main workflow:
+│   │   - Gaussian Process modelling
+│   │   - Acquisition function optimisation (EI)
+│   │   - Iterative sampling strategy
+│   │   - Final predictions
+│   │
+│   └── data/
+│       ├── initial_data/              Initial observations per function
+│       └── weekly_data/               Weekly submissions and returned outputs
+│
+├── datasheet/                         Dataset documentation and provenance
+│
+├── model_card/                        Model assumptions, limitations, and intended use
+│
+└── README.md                          Project overview and usage instructions
+```
 
 ---
 
