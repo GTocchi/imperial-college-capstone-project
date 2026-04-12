@@ -133,3 +133,43 @@ This adaptive strategy was adopted to balance efficient convergence with adequat
 
 ### 4. Query Selection via Multi‑Resolution Local Search
 At every optimisation step, the current best point served as the centre of a multi‑resolution local search. A hierarchy of shrinking neighbourhoods was explored, within which candidate points were generated deterministically as Cartesian products of low‑resolution local grids around the incumbent solution. Expected Improvement was repeatedly maximised over these locally generated candidates, progressively refining the incumbent solution before committing to the next function evaluation.
+
+### 5. Final Results: Function-wise Optimisation Outcomes
+Across all functions, the optimisation procedure consistently identified solutions with objective values higher than those observed in the initial samples, demonstrating reliable improvement and effective exploration–exploitation balancing across all problem instances.
+
+
+<p align="center">
+  <img src="functions/function_1/diagnostics/obj_values1.PNG" width="600">
+</p>
+
+<p align="center">
+  <img src="functions/function_2/diagnostics/obj_values2.PNG" width="600">
+</p>
+
+<p align="center">
+  <img src="functions/function_3/diagnostics/obj_values3.PNG" width="600">
+</p>
+
+<p align="center">
+  <img src="functions/function_4/diagnostics/obj_values4.PNG" width="600">
+</p>
+
+<p align="center">
+  <img src="functions/function_5/diagnostics/obj_values5.PNG" width="600">
+</p>
+
+<p align="center">
+  <img src="functions/function_6/diagnostics/obj_values6.PNG" width="600">
+</p>
+
+<p align="center">
+  <img src="functions/function_7/diagnostics/obj_values7.PNG" width="600">
+</p>
+
+<p align="center">
+  <img src="functions/function_8/diagnostics/obj_values8.PNG" width="600">
+</p>
+
+<em>
+Figure X: Objective values (initial vs predicted samples) across all functions, showing consistent improvements over initial evaluations and demonstrating effective optimisation performance across different problem instances.
+</em>
