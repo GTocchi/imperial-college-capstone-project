@@ -31,6 +31,6 @@ X: 0.170347-0.756959-0.276520-0.531232
 ```
 
 <p align="center">
-  <img src="scatter_plot.PNG" width="400">
+  <img src="diagnostics/scatter_plot.PNG" width="400">
 </p>
 <em>Figure 2: Pairwise scatter plots of all input dimensions, illustrating the central region of the four-dimensional search space that was identified and subsequently explored more intensively during optimisation. Blue points denote the initial sampled inputs, while red points represent the subsequent optimisation-generated candidate evaluations.</em>
