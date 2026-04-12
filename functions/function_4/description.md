@@ -8,6 +8,12 @@ Initial evaluations exhibit a wide dispersion (having the seond highest standard
 After a small number of exploratory evaluations, a relatively large central region of the four‑dimensional input space was identified, characterised by objective values close to zero.
 Following this discovery, the optimisation strategy was adapted to focus exploration within the identified subspace.
 
+
+<p align="center">
+  <img src="diagnostics/scatter_plot.PNG" width="800">
+</p>
+<em>Figure 2: Pairwise scatter plots of all input dimensions, illustrating the central region of the four-dimensional search space that was identified and subsequently explored more intensively during optimisation. Blue points denote the initial sampled inputs, while red points represent the subsequent optimisation-generated candidate evaluations.</em>
+
 ### Effective Optimisation Choices
 Maximisation of the marginal log‑likelihood (MLL) over the full input domain throughout the submissions consistently favoured non‑smooth kernels, with a Matérn kernel of smoothness parameter ν=1.5.
 
@@ -30,10 +36,6 @@ y: 0.578296
 X: 0.397201-0.420463-0.363744-0.430160 
 ```
 
-<p align="center">
-  <img src="diagnostics/scatter_plot.PNG" width="800">
-</p>
-<em>Figure 2: Pairwise scatter plots of all input dimensions, illustrating the central region of the four-dimensional search space that was identified and subsequently explored more intensively during optimisation. Blue points denote the initial sampled inputs, while red points represent the subsequent optimisation-generated candidate evaluations.</em>
 </em>
 <p align="center">
   <img src="diagnostics/obj_values4.PNG" width="600">
