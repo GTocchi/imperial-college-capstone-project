@@ -29,7 +29,7 @@ Broad exploration was therefore sustained for multiple rounds, driven by both th
 ### Best Observed Solution
 ```
 y: 0.652834
-X: 0.604386-0.086465
+X: 0.718638-0.880570 
 ```
 
 <p align="center">
