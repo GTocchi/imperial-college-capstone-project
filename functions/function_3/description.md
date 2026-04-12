@@ -12,7 +12,7 @@ Maximisation of the marginal log‑likelihood (MLL) did not indicate a clearly p
 
 
 <p align="center">
-  <img src="scatter_plot.PNG" width="400">
+  <img src="scatter_plot.PNG" width="800">
 </p>
 <em>
 Figure 1: Pairwise scatter plots of the input points, illustrating the exploratory sampling strategy. Blue points denote the initial sampled inputs, while red points represent the subsequent optimisation-generated candidate evaluations.
