@@ -21,7 +21,7 @@ Figure 1: Pairwise scatter plots of the input points, illustrating the explora
 ### Best Observed Solution
 ```
 y = −0.003369
-X = [0.410367, −0.775143, 0.000000]
+X = 0.373183-0.514055-0.499965
 ```
 
 <p align="center">
